@@ -1,1 +1,50 @@
-<p>client-page-details works!</p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow no-border ml-3">
+            <div class="card-body">
+                <h4>General Information</h4>
+                <hr>
+                <div class="row">
+                    <div class="col-6">
+                        <b>Name:</b>
+                    </div>
+                    <div class="col-6">
+                        <p>{{(client$ | async).Name}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <b>Age:</b>
+                    </div>
+                    <div class="col-6">
+                        <p>{{(client$ | async).Age}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <b>Company Name:</b>
+                    </div>
+                    <div class="col-6">
+                        <p>{{(client$ | async).CompanyName}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <b>Address:</b>
+                    </div>
+                    <div class="col-6">
+                        <p>{{(client$ | async).Address}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <b>Last update:</b>
+                    </div>
+                    <div class="col-6">
+                        <p>{{(client$ | async).LastUpdate | date}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>    
+</div>

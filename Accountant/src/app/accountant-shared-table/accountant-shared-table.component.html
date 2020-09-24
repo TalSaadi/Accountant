@@ -1,0 +1,10 @@
+<ag-grid-angular
+    #agGrid
+    class="ag-theme-alpine"
+    style="width: 1290px; height: 600px;"
+    [rowData]="rowData"
+    [headerHeight]="40"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    (gridReady)="onGridReady($event)">
+</ag-grid-angular>

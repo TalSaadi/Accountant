@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Client } from '../../../../../shared/objects/client';
+import { ClientStore } from '../store/client-store.service';
 
 @Component({
   selector: 'app-client-page-details',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientPageDetailsComponent implements OnInit {
 
-  constructor() { }
+  client$: Observable<Client>;
+
+  constructor(private clientStore: ClientStore) { }
 
   ngOnInit(): void {
+    this.client$ = this.clientStore.getClient();
   }
 
 }

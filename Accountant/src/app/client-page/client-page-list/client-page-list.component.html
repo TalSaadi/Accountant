@@ -1,1 +1,4 @@
-<p>client-page-list works!</p>
+<app-accountant-shared-table
+    [rowData]="clients$ | async"
+    [columnDefs]="columnDefs">
+</app-accountant-shared-table>
