@@ -6,12 +6,14 @@ import { Client } from '../../../../../shared/objects/client';
 export interface ClientState {
     client: Client;
     clientList: Client[];
+    isEditMode: boolean;
     loaded: boolean
 }
 
 const initialState = {
     client: new Client(),
     clientList: [],
+    isEditMode: false,
     loaded: false
 }
  
@@ -23,11 +25,15 @@ export class ClientStore extends ComponentStore<ClientState> {
  
     /* Updates */
     updateClient(client: Client) {
-        this.setState(state => { return {...state, client: client, loaded: true} });
+        this.setState(state => { return {...state, client: client, loaded: true, isEditMode: true} });
     }
 
     updateClientList(clientList: Client[]) {
         this.setState(state => { return {...state, clientList: clientList, loaded: true} });
+    }
+
+    updateEditMode(editMode: boolean) {
+        this.setState(state => { return {...state, isEditMode: editMode}});
     }
 
     updateLoaded(loaded: boolean) {
@@ -45,5 +51,14 @@ export class ClientStore extends ComponentStore<ClientState> {
 
     getLoaded(): Observable<boolean> {
         return this.select(state => state.loaded);
+    }
+
+    getEditMode(): Observable<boolean> {
+        return this.select(state => state.isEditMode);
+    }
+
+    /* Values */
+    getClientValue(): Client {
+        return this.get().client;
     }
 }

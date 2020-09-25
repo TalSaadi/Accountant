@@ -1,0 +1,113 @@
+<div class="card shadow no-border" style="margin-left: 30%;">
+    <div class="card-body">
+        <h4>Client Form</h4>
+        <div [formGroup]="clientForm" class="ml-3">
+            <div class="form-row mb-2 mt-3">
+              <div>
+                <label for="Name">Full name</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    [ngClass]="isValidField('Name')"
+                    id="Name" 
+                    name="Name"
+                    placeholder="Full name" 
+                    formControlName="Name"
+                    required>
+                <div class="valid-feedback" *ngIf="Name.valid && Name.touched">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback" *ngIf="Name.invalid && Name.touched">
+                    Please provide a valid first name.
+                </div>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+                <div>
+                  <label for="CompanyName">Company name</label>
+                  <input 
+                    type="text" 
+                    min="1" 
+                    class="form-control"
+                    [ngClass]="isValidField('CompanyName')"
+                    id="CompanyName" 
+                    placeholder="Company Name"
+                    formControlName="CompanyName" 
+                    required>
+                    <div class="valid-feedback" *ngIf="CompanyName.valid && CompanyName.touched">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback" *ngIf="CompanyName.invalid && CompanyName.touched">
+                        Please provide a valid first company.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+              <div>
+                <label for="Age">Age</label>
+                <input 
+                    type="number" 
+                    min="1"
+                    max="99"
+                    class="form-control" 
+                    [ngClass]="isValidField('Age')"
+                    id="Age"
+                    placeholder="Age" 
+                    formControlName="Age"
+                    required>
+                <div class="valid-feedback" *ngIf="Age.valid && Age.touched">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback" *ngIf="Age.invalid && Age.touched">
+                    Please provide a valid first Age.
+                </div>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div>
+                <label for="Address">Address</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    [ngClass]="isValidField('Address')"
+                    id="Address" 
+                    placeholder="Address" 
+                    formControlName="Address"
+                    required>
+                <div class="valid-feedback" *ngIf="Address.valid && Address.touched">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback" *ngIf="Address.invalid && Address.touched">
+                    Please provide a valid first Address.
+                </div>
+              </div>
+            </div>
+            <div *ngIf="isEditMode">
+                <button 
+                    class="btn btn-outline-danger mt-2 float-left"
+                    (click)="onDelete()">
+                    Delete
+                </button>
+                <button 
+                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
+                    type="submit"
+                    (click)="onUpdate()">
+                    Update
+                </button>
+            </div>
+            <div *ngIf="!isEditMode">
+                <button 
+                    class="btn btn-outline-danger mt-2 float-left"
+                    (click)="onDiscard()">
+                    Discard
+                </button>
+                <button 
+                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
+                    type="submit"
+                    (click)="onCreate()">
+                    Create
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

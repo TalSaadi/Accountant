@@ -27,17 +27,34 @@ export class ClientActions {
         }), error => this.router.navigate([`clients`]);
     }
 
+    createClient(client: Client): void {
+        this.clientStore.updateLoaded(true);
+        this.clientService.createClient(client)
+        .subscribe(() => {
+            this.clientStore.updateClient(client);
+            this.router.navigate([`clients/${client.Name}`]);
+        }), error => this.router.navigate([`clients`]);
+    }
+
     updateClient(client: Client): void {
-        this.clientStore.updateLoaded(false);
+        this.clientStore.updateLoaded(true);
         this.clientService.updateClient(client)
         .subscribe(() => {
+            this.clientStore.updateClient(client);
+            this.router.navigate([`clients/${client.Name}`]);
         }), error => this.router.navigate([`clients`]);
     }
 
     deleteClient(clientName: string): void {
-        this.clientStore.updateLoaded(false);
+        this.clientStore.updateLoaded(true);
         this.clientService.deleteClient(clientName)
         .subscribe(() => {
+            this.clientStore.updateClient(null);
+            this.router.navigate([`clients`]);
         }), error => this.router.navigate([`clients`]);
+    }
+
+    updateEditMode(editMode: boolean): void {
+        this.clientStore.updateEditMode(editMode);
     }
 }

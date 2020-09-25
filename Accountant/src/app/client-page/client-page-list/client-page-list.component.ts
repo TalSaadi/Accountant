@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Client } from '../../../../../shared/objects/client';
 import { ClientActions } from '../store/client-actions.service';
@@ -7,7 +7,8 @@ import { ClientStore } from '../store/client-store.service';
 @Component({
   selector: 'app-client-page-list',
   templateUrl: './client-page-list.component.html',
-  styleUrls: ['./client-page-list.component.scss']
+  styleUrls: ['./client-page-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClientPageListComponent implements OnInit {
 

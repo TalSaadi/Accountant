@@ -21,6 +21,7 @@ export class ClientService {
   }
 
   updateClient(client: Client): Observable<any> {
+    console.log(client);
     return this.httpClient.put(`${this.baseUrl}/${client.Name}`, client);
   }
 

@@ -1,0 +1,9 @@
+<app-client-page-crete-edit-form
+    [client]="client$ | async"
+    [isEditMode]="isEditMode$ | async"
+    (create)="onCreate()"
+    (delete)="onDelete($event)"
+    (update)="onUpdate()"
+    (discard)="onDiscard()"
+    (formReady)="onFormReady($event)">
+</app-client-page-crete-edit-form>
