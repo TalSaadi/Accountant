@@ -8,9 +8,9 @@ import { ClientCreateEditResolver } from './resolvers/client-create-edit.resolve
 
 const routes: Routes = [
   { path: '', component: ClientPageListComponent, resolve: {ClientResolver}},
+  { path: 'create', component: ClientPageCreateEditComponent, resolve: {ClientCreateEditResolver}},
   { path: ':name', component: ClientPageDetailsComponent, resolve: {ClientResolver}},
   { path: ':name/edit', component: ClientPageCreateEditComponent, resolve: {ClientCreateEditResolver}},
-  { path: 'create', component: ClientPageCreateEditComponent, resolve: {ClientCreateEditResolver}},
   { path: '**', component: ClientPageListComponent, resolve: {ClientResolver}}
 ];
 

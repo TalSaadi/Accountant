@@ -10,7 +10,7 @@ export class ClientCreateEditResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot): any {
     const clientName: string = route.paramMap.get('name');
     
-    if (clientName && clientName !== 'create') {
+    if (clientName) {
         return this.clientActions.loadClient(clientName);
     }
     this.clientActions.updateEditMode(false);

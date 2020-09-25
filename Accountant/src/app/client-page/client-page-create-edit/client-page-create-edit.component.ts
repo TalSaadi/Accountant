@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Client } from '../../../../../shared/objects/client';
 import { ClientActions } from '../store/client-actions.service';
@@ -19,7 +20,8 @@ export class ClientPageCreateEditComponent implements OnInit {
   checkoutForm: FormGroup;
 
   constructor(private clientStore: ClientStore,
-              private clientActions: ClientActions) {}
+              private clientActions: ClientActions,
+              private router: Router) {}
 
   ngOnInit() {
     this.client$ = this.clientStore.getClient();
@@ -43,6 +45,6 @@ export class ClientPageCreateEditComponent implements OnInit {
   }
 
   onDiscard() {
-
+    this.router.navigate([`clients`]);
   }
 }
