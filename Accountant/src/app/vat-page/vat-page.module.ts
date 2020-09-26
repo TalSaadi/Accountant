@@ -13,6 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VatPageDetailsComponent } from './vat-page-details/vat-page-details.component';
 import { AccountantSharedTableModule } from '../accountant-shared-table/accountant-shared-table.module';
 import { VatResolver } from './resolvers/vat.resolver';
+import { VatPageCreateEditExpenseComponent } from './vat-page-create-edit-expense/vat-page-create-edit-expense.component';
+import { VatPageCreateEditExpenseFormComponent } from './vat-page-create-edit-expense/vat-page-create-edit-expense-form/vat-page-create-edit-expense-form.component';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { VatResolver } from './resolvers/vat.resolver';
     VatPageComponent, 
     VatPageCreateEditComponent, 
     VatPageCreateEditFormComponent, 
-    VatPageDetailsComponent
+    VatPageDetailsComponent, 
+    VatPageCreateEditExpenseComponent, 
+    VatPageCreateEditExpenseFormComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +34,7 @@ import { VatResolver } from './resolvers/vat.resolver';
     ReactiveFormsModule,
     FormsModule,
     AccountantSharedTableModule,
+    NgbDatepickerModule,
   ],
   providers: [
     VatCreateEditResolver,

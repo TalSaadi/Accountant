@@ -4,11 +4,15 @@ import { VatPageCreateEditComponent } from './vat-page-create-edit/vat-page-crea
 import { VatPageDetailsComponent } from './vat-page-details/vat-page-details.component';
 // import { VatPageListComponent } from './vat-page-list/vat-page-list.component';
 import { VatResolver } from './resolvers/vat.resolver'; 
+import { ExpenseResolver } from './resolvers/expense.resolver';
 import { VatCreateEditResolver } from './resolvers/vat-create-edit.resolver';
+import { VatPageCreateEditExpenseComponent } from './vat-page-create-edit-expense/vat-page-create-edit-expense.component';
 
 const routes: Routes = [
 //   { path: '', component: VatPageListComponent, resolve: {VatResolver}},
   { path: 'create', component: VatPageCreateEditComponent, resolve: {VatCreateEditResolver}},
+  { path: ':id/expense/create', component: VatPageCreateEditExpenseComponent},
+  { path: ':id/expense/:expenseId/edit', component: VatPageCreateEditExpenseComponent, resolve : {ExpenseResolver}},
   { path: ':id', component: VatPageDetailsComponent, resolve: {VatResolver}},
 //   { path: ':id/edit', component: VatPageCreateEditComponent, resolve: {VatCreateEditResolver}},
 //   { path: '**', component: VatPageListComponent, resolve: {VatResolver}}

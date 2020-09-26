@@ -1,0 +1,9 @@
+<app-vat-page-create-edit-expense-form
+    [expense]="expense$ | async"
+    [isEditMode]="isEditMode$ | async"
+    (create)="onCreate()"
+    (delete)="onDelete($event)"
+    (update)="onUpdate()"
+    (discard)="onDiscard()"
+    (formReady)="onFormReady($event)">
+</app-vat-page-create-edit-expense-form>

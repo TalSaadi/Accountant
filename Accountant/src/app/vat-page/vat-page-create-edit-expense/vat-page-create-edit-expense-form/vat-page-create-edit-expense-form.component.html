@@ -1,0 +1,169 @@
+<div class="card shadow no-border" style="margin-left: 30%;">
+    <div class="card-body">
+        <h4>Expense Form</h4>
+        <div [formGroup]="expenseForm" class="ml-3">
+            <div class="form-row mb-2 mt-3">
+              <div>
+                <label for="ExpenseTitle">Expense title</label>
+                <input 
+                    type="text" 
+                    class="form-control"
+                    [ngClass]="isValidField('ExpenseTitle')"
+                    id="ExpenseTitle" 
+                    name="ExpenseTitle"
+                    placeholder="Expense Title" 
+                    formControlName="ExpenseTitle"
+                    required>
+                <div class="valid-feedback" *ngIf="ExpenseTitle.valid && ExpenseTitle.touched">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback" *ngIf="ExpenseTitle.invalid && ExpenseTitle.touched">
+                    Please provide a valid title.
+                </div>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+                <div>
+                  <label for="Category">Category</label>
+                  <input 
+                    type="text" 
+                    min="1" 
+                    class="form-control"
+                    [ngClass]="isValidField('Category')"
+                    id="Category" 
+                    placeholder="Category"
+                    formControlName="Category" 
+                    required>
+                    <div class="valid-feedback" *ngIf="Category.valid && Category.touched">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback" *ngIf="Category.invalid && Category.touched">
+                        Please provide a valid first category.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+              <div>
+                <label for="Amounts">Amounts</label>
+                <input 
+                    #amounts
+                    type="number" 
+                    min="1"
+                    class="form-control" 
+                    placeholder="Enter a price & press enter" 
+                    (keyup.enter)="addAmount(amounts.value); amounts.value = null"
+                    required>
+                <div class="row">
+                    <div *ngFor="let amount of Amounts.controls">
+                        <button type="button" class="btn btn-primary price mt-3 mr-1">
+                            <b>{{amount.value}}</b>
+                            <i class="fas fa-times ml-2" style="font-size: 15px"></i>
+                        </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div>
+                <label for="Total">Total</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">₪</span>
+                    </div>
+                    <input
+                        type="text" 
+                        class="form-control" 
+                        id="Total" 
+                        placeholder="Total" 
+                        formControlName="Total"
+                        required>      
+                </div>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+                <div>
+                  <label for="VatAmount">Vat Amount</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">%</span>
+                    </div>
+                    <input
+                        [disabled]="true"
+                        type="text" 
+                        class="form-control" 
+                        id="VatAmount" 
+                        placeholder="Vat Amount" 
+                        formControlName="VatAmount"
+                        required>
+                  </div>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div>
+                  <label for="AfterVat">After Vat</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">₪</span>
+                    </div>
+                    <input
+                        [disabled]="true"
+                        type="text" 
+                        class="form-control" 
+                        id="AfterVat" 
+                        placeholder="After Vat" 
+                        formControlName="AfterVat"
+                        required>
+                  </div>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div>
+                    <label for="Date">Date</label>
+                    <div class="input-group">
+                        <input 
+                            class="form-control" 
+                            placeholder="Choose a date"
+                            name="dp" 
+                            [displayMonths]="2"
+                            [navigation]="'none'"
+                            [outsideDays]="'collapsed'"
+                            [showWeekNumbers]="false"
+                            ngbDatepicker
+                            #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                            <i class="far fa-calendar-alt"></i>
+                          </button>
+                        </div>
+                    </div>           
+                </div>
+            </div>
+            <div *ngIf="isEditMode">
+                <button 
+                    class="btn btn-outline-danger mt-2 float-left"
+                    (click)="onDelete()">
+                    Delete
+                </button>
+                <button 
+                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
+                    type="submit"
+                    (click)="onUpdate()">
+                    Update
+                </button>
+            </div>
+            <div *ngIf="!isEditMode">
+                <button 
+                    class="btn btn-outline-danger mt-2 float-left"
+                    (click)="onDiscard()">
+                    Discard
+                </button>
+                <button 
+                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
+                    type="submit"
+                    (click)="onCreate()">
+                    Create
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { ClientVat } from '../../../../../shared/objects/client-vat';
 import { VatService } from '../services/vat.service';
 import {VatStore} from './vat-store.service';
 import { ToastrService } from 'ngx-toastr';
+import { Expense } from '../../../../../shared/objects/expense';
 
 
 @Injectable()
@@ -20,6 +21,14 @@ export class VatActions {
             this.vatStore.updateVat(vat);
         }), error => this.router.navigate([`vats`]);
     }
+
+    loadExpense(expenseId: number): void {
+        this.vatStore.updateLoaded(false);
+        this.vatService.getExpense(expenseId)
+        .subscribe((expense: Expense) => {
+            this.vatStore.updateExpense(expense);
+        }), error => this.router.navigate([`vats`]);
+    } 
 
     loadVats(): void {
         this.vatStore.updateLoaded(false);
@@ -64,6 +73,45 @@ export class VatActions {
             this.router.navigate([`vats`]);
         }), error => {
             this.toastrService.error(`Failed to delete vat: ${error}`);
+            this.router.navigate([`vats`]);
+        }
+    }
+
+    createExpense(expense: Expense): void {
+        this.vatStore.updateLoaded(true);
+        this.vatService.createExpense(expense)
+        .subscribe(() => {
+            this.vatStore.updateExpense(expense);
+            this.toastrService.success(`Expense created successfully`);
+            this.router.navigate([`vats/${expense.ExpenseId}`]);
+        }), error => {
+            this.toastrService.error(`Failed to create expense: ${error}`);
+            this.router.navigate([`vats`]);
+        }
+    }
+
+    updateExpense(expense: Expense): void {
+        this.vatStore.updateLoaded(true);
+        this.vatService.updateExpense(expense)
+        .subscribe(() => {
+            this.vatStore.updateExpense(expense);
+            this.toastrService.success(`Expense updated successfully`);
+            this.router.navigate([`vats/${expense.ExpenseId}`]);
+        }), error => {
+            this.toastrService.error(`Failed to update expense: ${error}`);
+            this.router.navigate([`vats`]);
+        }
+    }
+
+    deleteExpense(expenseId: number): void {
+        this.vatStore.updateLoaded(true);
+        this.vatService.deleteExpense(expenseId)
+        .subscribe(() => {
+            this.vatStore.updateExpense(null);
+            this.toastrService.success(`Expense deleted successfully`);
+            this.router.navigate([`vats`]);
+        }), error => {
+            this.toastrService.error(`Failed to delete expense: ${error}`);
             this.router.navigate([`vats`]);
         }
     }

@@ -2,10 +2,12 @@ import { Observable } from 'rxjs';
 import { ComponentStore } from '@ngrx/component-store';
 import { Injectable } from '@angular/core';
 import { ClientVat } from '../../../../../shared/objects/client-vat';
+import { Expense } from '../../../../../shared/objects/expense';
  
 export interface VatState {
     vat: ClientVat;
     vatList: ClientVat[];
+    expense: Expense,
     isEditMode: boolean;
     loaded: boolean
 }
@@ -13,6 +15,7 @@ export interface VatState {
 const initialState = {
     vat: new ClientVat(),
     vatList: [],
+    expense: new Expense(),
     isEditMode: false,
     loaded: false
 }
@@ -26,6 +29,10 @@ export class VatStore extends ComponentStore<VatState> {
     /* Updates */
     updateVat(vat: ClientVat) {
         this.setState(state => { return {...state, vat: vat, loaded: true, isEditMode: true} });
+    }
+
+    updateExpense(expense: Expense) {
+        this.setState(state => { return {...state, expense: expense, loaded: true, isEditMode: true}});
     }
 
     updateVatList(vatList: ClientVat[]) {
@@ -45,6 +52,10 @@ export class VatStore extends ComponentStore<VatState> {
         return this.select(state => state.vat);
     }
 
+    getExpense(): Observable<Expense> {
+        return this.select(state => state.expense);
+    }
+
     getVatList(): Observable<ClientVat[]> {
         return this.select(state => state.vatList);
     }
@@ -60,5 +71,9 @@ export class VatStore extends ComponentStore<VatState> {
     /* Values */
     getVatValue(): ClientVat {
         return this.get().vat;
+    }
+
+    getExpenseValue(): Expense {
+        return this.get().expense;
     }
 }
