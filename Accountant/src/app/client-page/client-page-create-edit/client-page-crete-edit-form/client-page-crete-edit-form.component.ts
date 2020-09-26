@@ -16,7 +16,7 @@ export class ClientPageCreteEditFormComponent implements OnInit {
   @Output() formReady = new EventEmitter<FormGroup>();
   @Output() create = new EventEmitter<boolean>();
   @Output() discard = new EventEmitter<boolean>();
-  @Output() delete = new EventEmitter<string>();
+  @Output() delete = new EventEmitter<number>();
   @Output() update = new EventEmitter<boolean>();
 
   constructor(private fb: FormBuilder) { }
@@ -44,7 +44,7 @@ export class ClientPageCreteEditFormComponent implements OnInit {
   }
 
   onDelete() {
-    this.delete.emit(this.client.Name);
+    this.delete.emit(this.client.ClientId);
   }
 
   onDiscard() {

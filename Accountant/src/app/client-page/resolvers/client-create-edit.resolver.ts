@@ -8,10 +8,10 @@ export class ClientCreateEditResolver implements Resolve<any> {
   constructor(private clientActions: ClientActions) {}
 
   resolve(route: ActivatedRouteSnapshot): any {
-    const clientName: string = route.paramMap.get('name');
+    const clientId: number = +route.paramMap.get('id');
     
-    if (clientName) {
-        return this.clientActions.loadClient(clientName);
+    if (clientId) {
+        return this.clientActions.loadClient(clientId);
     }
     this.clientActions.updateEditMode(false);
   }

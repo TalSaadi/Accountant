@@ -14,6 +14,9 @@ import { ClientPageCreateEditComponent } from './client-page-create-edit/client-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientPageCreteEditFormComponent } from './client-page-create-edit/client-page-crete-edit-form/client-page-crete-edit-form.component';
 import { ClientCreateEditResolver } from './resolvers/client-create-edit.resolver';
+import { ClientPageVatComponent } from './client-page-vat/client-page-vat.component';
+import { ClientPageVatFormComponent } from './client-page-vat/client-page-vat-form/client-page-vat-form.component';
+import { ClientPageDetailsVatComponent } from './client-page-details/components/client-page-details-vat/client-page-details-vat.component';
 
 
 @NgModule({
@@ -22,21 +25,24 @@ import { ClientCreateEditResolver } from './resolvers/client-create-edit.resolve
     ClientPageDetailsComponent,
     ClientPageListComponent,
     ClientPageCreateEditComponent,
-    ClientPageCreteEditFormComponent],
+    ClientPageCreteEditFormComponent,
+    ClientPageVatComponent,
+    ClientPageVatFormComponent,
+    ClientPageDetailsVatComponent],
   imports: [
     CommonModule,
     ClientPageRoutingModule,
     AccountantSharedTableModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     ClientResolver, 
     ClientCreateEditResolver,
     ClientActions, 
     ClientStore, 
-    ClientService
+    ClientService,
   ]
   })
 export class ClientPageModule { }

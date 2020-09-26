@@ -12,8 +12,8 @@ export class ClientService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getClient(clientName: string): Observable<Client> {
-    return this.httpClient.get<Client>(`${this.baseUrl}/${clientName}`);
+  getClient(clientId: number): Observable<Client> {
+    return this.httpClient.get<Client>(`${this.baseUrl}/${clientId}`);
   }
 
   getClients(): Observable<Client[]> {
@@ -21,15 +21,14 @@ export class ClientService {
   }
 
   updateClient(client: Client): Observable<any> {
-    console.log(client);
-    return this.httpClient.put(`${this.baseUrl}/${client.Name}`, client);
+    return this.httpClient.put(`${this.baseUrl}/${client.ClientId}`, client);
   }
 
   createClient(client: Client): Observable<any> {
     return this.httpClient.post(`${this.baseUrl}`, client);
   }
 
-  deleteClient(clientName: string): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl}/${clientName}`);
+  deleteClient(clientId: number): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}/${clientId}`);
   }
 }

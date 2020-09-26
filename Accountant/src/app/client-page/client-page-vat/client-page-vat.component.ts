@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -6,14 +6,13 @@ import { Client } from '../../../../../shared/objects/client';
 import { ClientActions } from '../store/client-actions.service';
 import { ClientStore } from '../store/client-store.service';
 
-
 @Component({
-  selector: 'app-client-page-create-edit',
-  templateUrl: './client-page-create-edit.component.html',
-  styleUrls: ['./client-page-create-edit.component.scss'],
+  selector: 'app-client-page-vat',
+  templateUrl: './client-page-vat.component.html',
+  styleUrls: ['./client-page-vat.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ClientPageCreateEditComponent implements OnInit {
+export class ClientPageVatComponent implements OnInit {
 
   client$: Observable<Client>;
   isEditMode$: Observable<boolean>;

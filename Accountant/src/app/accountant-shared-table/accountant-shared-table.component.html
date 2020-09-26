@@ -1,7 +1,8 @@
 <ag-grid-angular
     #agGrid
     class="ag-theme-alpine"
-    style="width: 1290px; height: 560px;"
+    [style.width.px]="width"
+    [style.height.px]="height"
     [rowData]="rowData"
     [headerHeight]="40"
     [columnDefs]="columnDefs"

@@ -17,8 +17,9 @@ export class AccountantSharedTableComponent implements OnInit {
   constructor() { }
 
   @Input() columnDefs = [];
-
   @Input() rowData = [];
+  @Input() height: number = 540;
+  @Input() width: number = 1290;
 
   ngOnInit(): void {
   }

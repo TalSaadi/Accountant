@@ -16,9 +16,12 @@ export class ClientPageListComponent implements OnInit {
   clients$: Observable<Client[]>;
 
   columnDefs = [
+    {
+      field: 'ClientId', sortable: true, width: 100, filter: true, checkboxSelection: true, resizable: true,
+      cellRenderer: (ClientId) => `<a href="/clients/${ClientId.value}"> ${ClientId.value}</a>`
+    },
     { 
-      field: 'Name', sortable: true, filter: true, checkboxSelection: true, resizable: true,
-      cellRenderer: (clientName) => `<a href="/clients/${clientName.value}"> ${clientName.value}</a>`
+      field: 'Name', sortable: true, filter: true, resizable: true
     },
     { field: 'Age', sortable: true, filter: true, resizable: true},
     { field: 'CompanyName', sortable: true, filter: true, resizable: true},
