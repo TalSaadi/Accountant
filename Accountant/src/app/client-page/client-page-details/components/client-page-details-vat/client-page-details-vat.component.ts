@@ -18,7 +18,7 @@ export class ClientPageDetailsVatComponent implements OnInit {
   columnDefs = [
     {
       field: 'VatId', sortable: true, width: 100, filter: true, checkboxSelection: true, resizable: true,
-      cellRenderer: (VatId) => `<a href="/vats/${VatId.Value}"> ${VatId.value}</a>`
+      cellRenderer: (VatId) => `<a href="/vats/${VatId.value}"> ${VatId.value}</a>`
     },
     { 
       field: 'Month', sortable: true, filter: true, resizable: true,

@@ -1,0 +1,79 @@
+<div class="row mb-3 mr-2">
+    <div class="col-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-7">
+                        <i class="far fa-calendar-alt month"></i>
+                    </div>
+                    <div class="col-5">
+                        <b class="float-right mb-2">Months</b>
+                        <h5 class="float-right">{{monthEnumToString((vat$ | async).Month)}}</h5>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <i class="fas fa-shekel-sign expense"></i>                    
+                    </div>
+                    <div class="col-8">
+                        <b class="float-right mb-2">Expenses</b>
+                        <h1 class="float-right">{{(vat$ | async).TotalExpenses}} ₪</h1>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-7">
+                        <i class="fas fa-percent percent"></i>
+                    </div>
+                    <div class="col-5">
+                        <b class="float-right mb-2">Vat</b>
+                        <h1 class="float-right">{{(vat$ | async).TotalVat}} ₪</h1>
+                    </div>
+                </div> 
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <i class="fas fa-shekel-sign profit"></i>
+                    </div>
+                    <div class="col-6">
+                        <b class="float-right mb-2">After Vat</b>
+                        <h1 class="float-right">{{(vat$ | async).AfterVat}} ₪</h1>
+                    </div>
+                </div> 
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <button 
+        class="btn btn-outline-primary mb-2"
+        style="margin-left: 88%"
+        (click)="onAddClick()">
+        Add expense
+    </button>
+</div>
+<app-accountant-shared-table
+    [height]="360"
+    [rowData]="(vat$ | async).Expenses"
+    [columnDefs]="columnDefs">
+</app-accountant-shared-table>

@@ -1,0 +1,9 @@
+<app-vat-page-create-edit-form
+    [vat]="vat$ | async"
+    [isEditMode]="isEditMode$ | async"
+    (create)="onCreate()"
+    (delete)="onDelete($event)"
+    (update)="onUpdate()"
+    (discard)="onDiscard()"
+    (formReady)="onFormReady($event)">
+</app-vat-page-create-edit-form>

@@ -1,2 +1,0 @@
-# Accountant
-Accountant web service

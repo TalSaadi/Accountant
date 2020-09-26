@@ -7,6 +7,10 @@ const routes: Routes = [
   { 
     path: 'clients',
     loadChildren: () => import('./client-page/client-page.module').then(m => m.ClientPageModule)
+  },
+  {
+    path: 'vats',
+    loadChildren: () => import('./vat-page/vat-page.module').then(m => m.VatPageModule)
   }
 ];
 

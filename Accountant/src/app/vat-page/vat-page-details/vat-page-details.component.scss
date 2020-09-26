@@ -1,0 +1,32 @@
+.card {
+    border: none;
+    height: 175px;
+    border-radius: 15px;
+}
+
+i {
+    font-size: 60px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.month {
+    color: rgb(251, 200, 104);
+}
+
+.expense {
+    color: rgba(255, 0, 0, 0.685);
+}
+
+.profit {
+    color: rgba(0, 128, 0, 0.685);
+}
+
+.percent {
+    color: rgba(0, 0, 255, 0.685)
+}
+
+b {
+    color: grey;
+    font-size: 20px;
+}
