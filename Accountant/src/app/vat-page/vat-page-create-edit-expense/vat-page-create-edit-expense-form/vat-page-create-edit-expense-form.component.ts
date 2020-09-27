@@ -19,6 +19,13 @@ export class VatPageCreateEditExpenseFormComponent implements OnInit {
   @Output() delete = new EventEmitter<number>();
   @Output() update = new EventEmitter<boolean>();
 
+  categories: {value: number, title: string}[] = [
+    {value: 0, title: 'House'},
+    {value: 1, title: 'Work'},
+    {value: 2, title: 'Food'},
+    {value: 3, title: 'Clothing'}
+  ];
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -76,6 +83,12 @@ export class VatPageCreateEditExpenseFormComponent implements OnInit {
 
   onDiscard() {
     this.discard.emit(true);
+  }
+
+  onChangeCategory(e) {
+    this.Category.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
   get ExpenseTitle() {

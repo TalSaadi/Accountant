@@ -25,21 +25,24 @@
             <div class="form-row mb-2">
                 <div>
                   <label for="Category">Category</label>
-                  <input 
-                    type="text" 
-                    min="1" 
+                  <select
                     class="form-control"
-                    [ngClass]="isValidField('Category')"
+                    (change)="onChangeCategory($event)" 
+                    formControlName="Category"
                     id="Category" 
-                    placeholder="Category"
-                    formControlName="Category" 
-                    required>
-                    <div class="valid-feedback" *ngIf="Category.valid && Category.touched">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback" *ngIf="Category.invalid && Category.touched">
-                        Please provide a valid first category.
-                    </div>
+                    name="Category"
+                    [ngClass]="isValidField('Category')">
+                    <option value="" disabled>Choose category</option>
+                    <option *ngFor="let category of categories" [ngValue]="category.value">
+                        {{category.title}}
+                    </option>
+                  </select>
+                  <div class="valid-feedback" *ngIf="Category.valid && Category.touched">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback" *ngIf="Category.invalid && Category.touched">
+                      Please provide a valid first category.
+                  </div>
                 </div>
             </div>
             <div class="form-row mb-2">
