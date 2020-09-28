@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientPageCreteEditFormComponent } from './client-page-create-edit/client-page-crete-edit-form/client-page-crete-edit-form.component';
 import { ClientCreateEditResolver } from './resolvers/client-create-edit.resolver';
 import { ClientPageDetailsVatComponent } from './client-page-details/components/client-page-details-vat/client-page-details-vat.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ClientPageDetailsVatComponent } from './client-page-details/components/
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    ChartsModule
   ],
   providers: [
     ClientResolver, 

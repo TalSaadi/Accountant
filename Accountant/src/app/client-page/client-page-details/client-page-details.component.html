@@ -66,3 +66,67 @@
         <app-client-page-details-vat [client]="client$ | async"></app-client-page-details-vat>
     </div>  
 </div>
+<div class="row mt-3">
+    <div class="col-4">
+        <div class="card shadow no-border ml-3">
+            <div class="card-body">
+                <div class="row mb-2">
+                    <div class="col-10">
+                        <h4>Profit graph</h4>
+                    </div>
+                </div>
+                <div style="display: block">
+                    <canvas baseChart
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [legend]="false"
+                            [chartType]="barChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="card shadow no-border stats">
+            <div class="row">
+                <div class="col-10">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-7">
+                                <h1 class="ml-3 mt-2" style="color: rgb(22, 211, 154)">76,456.00₪</h1>
+                            </div>
+                            <div class="col-3">
+                                <h4>Total sales</h4>
+                                <h6 class="ml-3">27/1/2019</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2" style="background-color: rgb(22, 211, 154); border-radius: 5px;">
+                    <i class="fas fa-chart-line mt-4 ml-4" style="font-size: 60px; color: white"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow no-border stats mt-2">
+            <div class="row">
+                <div class="col-10">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-7">
+                                <h1 class="ml-3 mt-2" style="color: rgb(255, 117, 136)">43,520.00₪</h1>
+                            </div>
+                            <div class="col-3">
+                                <h4>Expenses</h4>
+                                <h6 class="ml-3">27/1/2019</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2" style="background-color: rgb(255, 117, 136); border-radius: 5px;">
+                    <i class="far fa-credit-card mt-4 ml-4" style="font-size: 60px; color: white"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
