@@ -23,7 +23,7 @@
                         <i class="fas fa-shekel-sign expense"></i>                    
                     </div>
                     <div class="col-8">
-                        <b class="float-right mb-2">Expenses</b>
+                        <b class="float-right mb-2">Vat to pay</b>
                         <h1 class="float-right">{{(vat$ | async).TotalExpenses}} ₪</h1>
                     </div>
                 </div>
@@ -35,11 +35,11 @@
         <div class="card shadow">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-7">
-                        <i class="fas fa-percent percent"></i>
+                    <div class="col-6">
+                        <i class="fas fa-calculator profit"></i>
                     </div>
-                    <div class="col-5">
-                        <b class="float-right mb-2">Vat</b>
+                    <div class="col-6">
+                        <b class="float-right mb-2">Tax to pay</b>
                         <h1 class="float-right">{{(vat$ | async).TotalVat}} ₪</h1>
                     </div>
                 </div> 
@@ -52,11 +52,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
-                        <i class="fas fa-shekel-sign profit"></i>
+                        <i class="fas fa-percent percent"></i>
                     </div>
                     <div class="col-6">
-                        <b class="float-right mb-2">After Vat</b>
-                        <h1 class="float-right">{{(vat$ | async).AfterVat}} ₪</h1>
+                        <b class="float-right mb-2">Deduction</b>
+                        <h1 class="float-right">{{(vat$ | async).AfterVat}} %</h1>
                     </div>
                 </div> 
                 <hr>
@@ -64,16 +64,50 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <button 
-        class="btn btn-outline-primary mb-2"
-        style="margin-left: 88%"
-        (click)="onAddClick()">
-        Add expense
-    </button>
+<div class="row mb-3 ml-1">
+    <div class="card shadow" style="height: 100px; width: 1150px">
+        <table class="table ml-2" style="width: 1130px; text-align: center;">
+            <thead>
+                <tr>
+                <th scope="col">סך הכל לתשלום</th>
+                <th scope="col">מחזור ללא מע"מ</th>
+                <th scope="col">מע"מ עסקאות</th>
+                <th scope="col">מחזור כולל מע"מ</th>
+                <th scope="col">הוצאות ללא מע"מ</th>
+                <th scope="col">מע"מ תשומות</th>
+                <th scope="col">הוצאות כולל מע"מ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">12937 ₪</th>
+                <td>15683 ₪</td>
+                <td>7585 ₪</td>
+                <td>23658 ₪</td>
+                <td>36975 ₪</td>
+                <td>24536 ₪</td>
+                <td>12456 ₪</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col">
+        <button 
+            class="btn btn-outline-primary"
+            style="height: 45px; width: 115px;"
+            (click)="onAddProfitClick()">
+            Add profit
+        </button>
+        <button 
+            class="btn btn-outline-primary mt-2"
+            style="height: 45px;"
+            (click)="onAddExpenseClick()">
+            Add expense
+        </button>
+    </div>
 </div>
 <app-accountant-shared-table
-    [height]="360"
+    [height]="300"
     [rowData]="(vat$ | async).Expenses"
     [columnDefs]="columnDefs">
 </app-accountant-shared-table>

@@ -5,6 +5,7 @@ import { VatService } from '../services/vat.service';
 import {VatStore} from './vat-store.service';
 import { ToastrService } from 'ngx-toastr';
 import { Expense } from '../../../../../shared/objects/expense';
+import { Profit } from '../../../../../shared/objects/profit';
 
 
 @Injectable()
@@ -118,5 +119,41 @@ export class VatActions {
 
     updateEditMode(editMode: boolean): void {
         this.vatStore.updateEditMode(editMode);
+    }
+
+    createProfit(profit: Profit): void {
+        this.vatStore.updateLoaded(true);
+        this.vatService.createProfit(profit)
+        .subscribe(() => {
+            this.toastrService.success(`Expense created successfully`);
+            this.router.navigate([`vats`]);
+        }), error => {
+            this.toastrService.error(`Failed to create expense: ${error}`);
+            this.router.navigate([`vats`]);
+        }
+    }
+
+    updateProfit(profit: Profit): void {
+        this.vatStore.updateLoaded(true);
+        this.vatService.updateProfit(profit)
+        .subscribe(() => {
+            this.toastrService.success(`Expense updated successfully`);
+            this.router.navigate([`vats`]);
+        }), error => {
+            this.toastrService.error(`Failed to update expense: ${error}`);
+            this.router.navigate([`vats`]);
+        }
+    }
+
+    deleteProfit(profitId: number): void {
+        this.vatStore.updateLoaded(true);
+        this.vatService.deleteProfit(profitId)
+        .subscribe(() => {
+            this.toastrService.success(`Expense deleted successfully`);
+            this.router.navigate([`vats`]);
+        }), error => {
+            this.toastrService.error(`Failed to delete expense: ${error}`);
+            this.router.navigate([`vats`]);
+        }
     }
 }

@@ -48,7 +48,11 @@ export class VatPageDetailsComponent implements OnInit {
     this.vat$ = this.vatStore.getVat();
   }
 
-  onAddClick(): void {
+  onAddProfitClick(): void {
+    this.router.navigate(['./profit/create'], {relativeTo: this.activatedRoute});
+  }
+
+  onAddExpenseClick(): void {
     this.router.navigate(['./expense/create'], {relativeTo: this.activatedRoute});
   }
 

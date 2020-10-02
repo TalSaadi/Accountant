@@ -23,9 +23,10 @@ export class ClientPageListComponent implements OnInit {
     { 
       field: 'Name', sortable: true, filter: true, resizable: true
     },
-    { field: 'Age', sortable: true, filter: true, resizable: true},
-    { field: 'CompanyName', sortable: true, filter: true, resizable: true},
-    { field: 'Address', sortable: true, filter: true, resizable: true},
+    { field: 'IdCard', sortable: true, filter: true, resizable: true},
+    { field: 'BirthYear', sortable: true, filter: true, resizable: true},
+    { field: 'Username', sortable: true, filter: true, resizable: true},
+    { field: 'Password', sortable: true, filter: true, resizable: true},
     { 
       field: 'LastUpdate', sortable: true, filter: true, resizable: true,
       cellRenderer: (lastUpdate) => `<a>${lastUpdate.value} | date </a>`

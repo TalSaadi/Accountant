@@ -16,6 +16,8 @@ import { VatResolver } from './resolvers/vat.resolver';
 import { VatPageCreateEditExpenseComponent } from './vat-page-create-edit-expense/vat-page-create-edit-expense.component';
 import { VatPageCreateEditExpenseFormComponent } from './vat-page-create-edit-expense/vat-page-create-edit-expense-form/vat-page-create-edit-expense-form.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { VatPageCreateEditProfitComponent } from './vat-page-create-edit-profit/vat-page-create-edit-profit.component';
+import { VatPageCreteEditProfitFormComponent } from './vat-page-create-edit-profit/vat-page-crete-edit-profit-form/vat-page-crete-edit-profit-form.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
     VatPageCreateEditFormComponent, 
     VatPageDetailsComponent, 
     VatPageCreateEditExpenseComponent, 
-    VatPageCreateEditExpenseFormComponent
+    VatPageCreateEditExpenseFormComponent,
+    VatPageCreateEditProfitComponent, 
+    VatPageCreteEditProfitFormComponent
   ],
   imports: [
     CommonModule,

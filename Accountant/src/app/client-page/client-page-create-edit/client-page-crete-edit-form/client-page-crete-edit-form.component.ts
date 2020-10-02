@@ -29,9 +29,12 @@ export class ClientPageCreteEditFormComponent implements OnInit {
   initForm() {
     return {
       Name: new FormControl(this.client.Name, [Validators.required]),
-      CompanyName: new FormControl(this.client.CompanyName, [Validators.required]),
-      Age: new FormControl(this.client.Age, [Validators.required]),
-      Address: new FormControl(this.client.Address, [Validators.required])
+      IdCard: new FormControl(this.client.IdCard, [Validators.required]),
+      BirthYear: new FormControl(this.client.BirthYear, [Validators.required]),
+      Username: new FormControl(this.client.Username, [Validators.required]),
+      Password: new FormControl(this.client.Password, [Validators.required]),
+      GreenUsername: new FormControl(this.client.GreenUsername),
+      GreenPassword: new FormControl(this.client.GreenPassword)
     };
   }
 
@@ -55,16 +58,28 @@ export class ClientPageCreteEditFormComponent implements OnInit {
     return this.clientForm.get('Name');
   } 
 
-  get CompanyName() {
-    return this.clientForm.get('CompanyName');
-  } 
+  get IdCard() {
+    return this.clientForm.get('IdCard');
+  }
 
-  get Age() {
-    return this.clientForm.get('Age');
-  } 
+  get BirthYear() {
+    return this.clientForm.get('BirthYear');
+  }
 
-  get Address() {
-    return this.clientForm.get('Address');
+  get Username() {
+    return this.clientForm.get('Username');
+  }
+
+  get Password() {
+    return this.clientForm.get('Password');
+  }
+
+  get GreenUsername() {
+    return this.clientForm.get('GreenUsername');
+  }
+
+  get GreenPassword() {
+    return this.clientForm.get('GreenPassword');
   }
 
   isValidField(field: string) {

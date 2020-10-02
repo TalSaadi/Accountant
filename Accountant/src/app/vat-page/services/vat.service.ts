@@ -3,6 +3,7 @@ import { ClientVat } from '../../../../../shared/objects/client-vat';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Expense } from '../../../../../shared/objects/expense';
+import { Profit } from '../../../../../shared/objects/profit';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class VatService {
 
   baseUrl: string = "http://localhost:57308/api/Vats";
   expenseUrl: string = "http://localhost:57308/api/Expenses";
+  profitUrl: string = "http://localhost:57308/api/Profits";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -48,5 +50,17 @@ export class VatService {
 
   deleteExpense(expenseId: number): Observable<any> {
     return this.httpClient.delete(`${this.expenseUrl}/${expenseId}`);
+  }
+
+  updateProfit(profit: Profit): Observable<any> {
+    return this.httpClient.put(`${this.profitUrl}/${profit.ProfitId}`, profit);
+  }
+
+  createProfit(profit: Profit): Observable<any> {
+    return this.httpClient.post(`${this.profitUrl}`, profit);
+  }
+
+  deleteProfit(profitId: number): Observable<any> {
+    return this.httpClient.delete(`${this.profitUrl}/${profitId}`);
   }
 }

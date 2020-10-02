@@ -4,9 +4,12 @@ import {ClientVat} from './client-vat';
 export class Client implements IClient {
     ClientId: number;
     Name: string;
-    Age: number;
-    CompanyName: string;
-    Address: string;
+    IdCard: string;
+    BirthYear: number;
+    Username: string;
+    Password: string;
+    GreenUsername: string;
+    GreenPassword: string;
     LastUpdate: Date;
     Vats: ClientVat[];
 
@@ -15,9 +18,12 @@ export class Client implements IClient {
 
         this.ClientId = client.ClientId;
         this.Name = client.Name;
-        this.Age = client.Age;
-        this.CompanyName = client.CompanyName;
-        this.Address = client.Address;
+        this.IdCard = client.IdCard;
+        this.BirthYear = client.BirthYear;
+        this.Username = client.Username;
+        this.Password = client.Password;
+        this.GreenUsername = client.GreenUsername;
+        this.GreenPassword = client.GreenPassword;
         this.LastUpdate = client.LastUpdate;
     }
 }

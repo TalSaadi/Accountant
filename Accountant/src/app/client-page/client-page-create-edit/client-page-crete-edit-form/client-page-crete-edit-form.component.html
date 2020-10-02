@@ -4,7 +4,7 @@
         <div [formGroup]="clientForm" class="ml-3">
             <div class="form-row mb-2 mt-3">
               <div>
-                <label for="Name">Full name</label>
+                <label for="Name">Full name*</label>
                 <input 
                     type="text" 
                     class="form-control"
@@ -24,63 +24,112 @@
             </div>
             <div class="form-row mb-2">
                 <div>
-                  <label for="CompanyName">Company name</label>
+                  <label for="IdCard">Id card*</label>
                   <input 
                     type="text" 
                     min="1" 
                     class="form-control"
-                    [ngClass]="isValidField('CompanyName')"
-                    id="CompanyName" 
-                    placeholder="Company Name"
-                    formControlName="CompanyName" 
+                    [ngClass]="isValidField('IdCard')"
+                    id="IdCard" 
+                    placeholder="Id Card"
+                    formControlName="IdCard" 
                     required>
-                    <div class="valid-feedback" *ngIf="CompanyName.valid && CompanyName.touched">
+                    <div class="valid-feedback" *ngIf="IdCard.valid && IdCard.touched">
                         Looks good!
                     </div>
-                    <div class="invalid-feedback" *ngIf="CompanyName.invalid && CompanyName.touched">
-                        Please provide a valid first company.
+                    <div class="invalid-feedback" *ngIf="IdCard.invalid && IdCard.touched">
+                        Please provide a valid first id.
                     </div>
                 </div>
             </div>
             <div class="form-row mb-2">
               <div>
-                <label for="Age">Age</label>
+                <label for="BirthYear">Birth Year*</label>
                 <input 
                     type="number" 
                     min="1"
                     max="99"
                     class="form-control" 
-                    [ngClass]="isValidField('Age')"
-                    id="Age"
-                    placeholder="Age" 
-                    formControlName="Age"
+                    [ngClass]="isValidField('BirthYear')"
+                    id="BirthYear"
+                    placeholder="BirthYear" 
+                    formControlName="BirthYear"
                     required>
-                <div class="valid-feedback" *ngIf="Age.valid && Age.touched">
+                <div class="valid-feedback" *ngIf="BirthYear.valid && BirthYear.touched">
                     Looks good!
                 </div>
-                <div class="invalid-feedback" *ngIf="Age.invalid && Age.touched">
-                    Please provide a valid first Age.
+                <div class="invalid-feedback" *ngIf="BirthYear.invalid && BirthYear.touched">
+                    Please provide a valid first birth year.
                 </div>
               </div>
             </div>
             <div class="form-row mb-2">
               <div>
-                <label for="Address">Address</label>
+                <label for="Username">Username*</label>
                 <input 
                     type="text" 
                     class="form-control" 
-                    [ngClass]="isValidField('Address')"
-                    id="Address" 
-                    placeholder="Address" 
-                    formControlName="Address"
+                    [ngClass]="isValidField('Username')"
+                    id="Username" 
+                    placeholder="Username" 
+                    formControlName="Username"
                     required>
-                <div class="valid-feedback" *ngIf="Address.valid && Address.touched">
+                <div class="valid-feedback" *ngIf="Username.valid && Username.touched">
                     Looks good!
                 </div>
-                <div class="invalid-feedback" *ngIf="Address.invalid && Address.touched">
-                    Please provide a valid first Address.
+                <div class="invalid-feedback" *ngIf="Username.invalid && Username.touched">
+                    Please provide a valid first username.
                 </div>
               </div>
+            </div>
+            <div class="form-row mb-2">
+                <div>
+                  <label for="Password">Password*</label>
+                  <input 
+                      type="text" 
+                      class="form-control" 
+                      [ngClass]="isValidField('Password')"
+                      id="Password" 
+                      placeholder="Password" 
+                      formControlName="Password"
+                      required>
+                  <div class="valid-feedback" *ngIf="Password.valid && Password.touched">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback" *ngIf="Password.invalid && Password.touched">
+                      Please provide a valid first password.
+                  </div>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div>
+                  <label for="GreenUsername">Green Username</label>
+                  <input 
+                      type="text" 
+                      class="form-control" 
+                      id="GreenUsername" 
+                      placeholder="GreenUsername" 
+                      formControlName="GreenUsername"
+                      required>
+                  <div class="valid-feedback" *ngIf="GreenUsername.valid && GreenUsername.touched">
+                      Looks good!
+                  </div>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div>
+                  <label for="GreenPassword">Green Password</label>
+                  <input 
+                      type="text" 
+                      class="form-control" 
+                      id="GreenPassword" 
+                      placeholder="GreenPassword" 
+                      formControlName="GreenPassword"
+                      required>
+                  <div class="valid-feedback" *ngIf="GreenPassword.valid && GreenPassword.touched">
+                      Looks good!
+                  </div>
+                </div>
             </div>
             <div *ngIf="isEditMode">
                 <button 

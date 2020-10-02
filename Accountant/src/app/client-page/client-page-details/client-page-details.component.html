@@ -13,14 +13,6 @@
                 <hr>
                 <div class="row">
                     <div class="col-6">
-                        <b>Client Id:</b>
-                    </div>
-                    <div class="col-6">
-                        <p>{{(client$ | async).ClientId}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
                         <b>Name:</b>
                     </div>
                     <div class="col-6">
@@ -29,26 +21,34 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <b>Age:</b>
+                        <b>Id card:</b>
                     </div>
                     <div class="col-6">
-                        <p>{{(client$ | async).Age}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <b>Company Name:</b>
-                    </div>
-                    <div class="col-6">
-                        <p>{{(client$ | async).CompanyName}}</p>
+                        <p>{{(client$ | async).IdCard}}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <b>Address:</b>
+                        <b>Birth Year:</b>
                     </div>
                     <div class="col-6">
-                        <p>{{(client$ | async).Address}}</p>
+                        <p>{{(client$ | async).BirthYear}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <b>Vat Username:</b>
+                    </div>
+                    <div class="col-6">
+                        <p>{{(client$ | async).Username}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <b>Vat Password:</b>
+                    </div>
+                    <div class="col-6">
+                        <p>{{(client$ | async).Password}}</p>
                     </div>
                 </div>
                 <div class="row">
