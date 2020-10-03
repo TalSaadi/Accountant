@@ -1,59 +1,59 @@
 <div class="card shadow no-border" style="margin-left: 30%;">
     <div class="card-body">
-        <h4>Expense Form</h4>
-        <div [formGroup]="expenseForm" class="ml-3">
+        <h4 class="text-right">טופס הוצאה</h4>
+        <div [formGroup]="expenseForm" class="mr-2">
             <div class="form-row mb-2 mt-3">
-              <div>
-                <label for="ExpenseTitle">Expense title</label>
+              <div class="text-right">
+                <label for="ExpenseTitle">תיאור ההוצאה</label>
                 <input 
                     type="text" 
-                    class="form-control"
+                    class="form-control text-right"
                     [ngClass]="isValidField('ExpenseTitle')"
                     id="ExpenseTitle" 
                     name="ExpenseTitle"
-                    placeholder="Expense Title" 
+                    placeholder="תיאור ההוצאה" 
                     formControlName="ExpenseTitle"
                     required>
                 <div class="valid-feedback" *ngIf="ExpenseTitle.valid && ExpenseTitle.touched">
-                  Looks good!
+                  !נראה טוב
                 </div>
                 <div class="invalid-feedback" *ngIf="ExpenseTitle.invalid && ExpenseTitle.touched">
-                    Please provide a valid title.
+                    .אנא הכנס תיאור תקין
                 </div>
               </div>
             </div>
             <div class="form-row mb-2">
-                <div>
-                  <label for="Category">Category</label>
+                <div class="text-right">
+                  <label for="Category">סוג ההוצאה</label>
                   <select
-                    class="form-control"
+                    class="form-control text-right"
                     (change)="onChangeCategory($event)" 
                     formControlName="Category"
                     id="Category" 
                     name="Category"
                     [ngClass]="isValidField('Category')">
-                    <option value="" disabled>Choose category</option>
+                    <option value="" disabled class="text-right">בחר סוג הוצאה</option>
                     <option *ngFor="let category of categories" [ngValue]="category.value">
                         {{category.title}}
                     </option>
                   </select>
                   <div class="valid-feedback" *ngIf="Category.valid && Category.touched">
-                      Looks good!
+                      !נראה טוב
                   </div>
                   <div class="invalid-feedback" *ngIf="Category.invalid && Category.touched">
-                      Please provide a valid first category.
+                      .אנא בחר סוג הוצאה תקין
                   </div>
                 </div>
             </div>
             <div class="form-row mb-2">
-              <div>
-                <label for="Amounts">Amounts</label>
+              <div class="text-right">
+                <label for="Amounts">סכום ההוצאה</label>
                 <input 
                     #amounts
                     type="number" 
                     min="1"
-                    class="form-control" 
-                    placeholder="Enter a price & press enter" 
+                    class="form-control text-right" 
+                    placeholder="הכנס מחיר & לחץ אנטר" 
                     (keyup.enter)="addAmount(amounts.value); amounts.value = null"
                     required>
                 <div class="row">
@@ -66,26 +66,26 @@
                 </div>
               </div>
             </div>
-            <div class="form-row mb-2">
-              <div>
-                <label for="Total">Total</label>
+            <div class="form-row mb-2 ml-3">
+              <div class="text-right">
+                <label for="Total">סך הכל</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">₪</span>
                     </div>
                     <input
                         type="text" 
-                        class="form-control" 
+                        class="form-control text-right" 
                         id="Total" 
-                        placeholder="Total" 
+                        placeholder="סך הכל" 
                         formControlName="Total"
                         required>      
                 </div>
               </div>
             </div>
-            <div class="form-row mb-2">
-                <div>
-                  <label for="VatAmount">Vat Amount</label>
+            <div class="form-row mb-2 ml-3">
+                <div class="text-right">
+                  <label for="VatAmount">מע"מ תשומות</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
@@ -93,17 +93,17 @@
                     <input
                         [disabled]="true"
                         type="text" 
-                        class="form-control" 
+                        class="form-control text-right" 
                         id="VatAmount" 
-                        placeholder="Vat Amount" 
+                        placeholder="מעמ תשומות" 
                         formControlName="VatAmount"
                         required>
                   </div>
                 </div>
             </div>
-            <div class="form-row mb-2">
-                <div>
-                  <label for="AfterVat">After Vat</label>
+            <div class="form-row mb-2 ml-3">
+                <div class="text-right">
+                  <label for="AfterVat">הוצאות ללא מע"מ</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">₪</span>
@@ -111,21 +111,21 @@
                     <input
                         [disabled]="true"
                         type="text" 
-                        class="form-control" 
+                        class="form-control text-right" 
                         id="AfterVat" 
-                        placeholder="After Vat" 
+                        placeholder="הוצאות ללא מעמ" 
                         formControlName="AfterVat"
                         required>
                   </div>
                 </div>
             </div>
-            <div class="form-row mb-2">
-                <div>
-                    <label for="Date">Date</label>
+            <div class="form-row mb-2 ml-3">
+                <div class="text-right">
+                    <label for="Date">תאריך</label>
                     <div class="input-group">
                         <input 
-                            class="form-control" 
-                            placeholder="Choose a date"
+                            class="form-control text-right" 
+                            placeholder="בחר תאריך"
                             name="dp" 
                             [displayMonths]="2"
                             [navigation]="'none'"
@@ -142,30 +142,30 @@
                 </div>
             </div>
             <div *ngIf="isEditMode">
-                <button 
-                    class="btn btn-outline-danger mt-2 float-left"
-                    (click)="onDelete()">
-                    Delete
-                </button>
-                <button 
-                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
-                    type="submit"
-                    (click)="onUpdate()">
-                    Update
-                </button>
+              <button 
+                  class="btn btn-outline-primary mt-2 ml-3 float-left" 
+                  type="submit"
+                  (click)="onUpdate()">
+                  עדכון
+              </button>
+              <button 
+                  class="btn btn-outline-danger mt-2  float-right"
+                  (click)="onDelete()">
+                  מחיקה
+              </button>
             </div>
             <div *ngIf="!isEditMode">
-                <button 
-                    class="btn btn-outline-danger mt-2 float-left"
-                    (click)="onDiscard()">
-                    Discard
-                </button>
-                <button 
-                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
+              <button 
+                    class="btn btn-outline-primary mt-2 ml-3 float-left" 
                     type="submit"
                     (click)="onCreate()">
-                    Create
+                    יצירה
                 </button>
+                <button 
+                    class="btn btn-outline-danger mt-2 float-right"
+                    (click)="onDiscard()">
+                    ביטול
+                </button>    
             </div>
         </div>
     </div>

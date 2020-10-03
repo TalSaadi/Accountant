@@ -1,36 +1,36 @@
 <div class="card shadow no-border" style="margin-left: 30%;">
     <div class="card-body">
-        <h4>Profit Form</h4>
+        <h4 class="text-right">טופס הכנסה</h4>
         <div [formGroup]="profitForm" class="ml-3">
             <div class="form-row mb-2 mt-3">
-              <div>
-                <label for="ProfitTitle">Profit title</label>
+              <div class="text-right">
+                <label for="ProfitTitle">תיאור ההכנסה</label>
                 <input 
                     type="text" 
-                    class="form-control"
+                    class="form-control text-right"
                     [ngClass]="isValidField('ProfitTitle')"
                     id="ProfitTitle" 
                     name="ProfitTitle"
-                    placeholder="Profit Title" 
+                    placeholder="תיאור ההכנסה" 
                     formControlName="ProfitTitle"
                     required>
                 <div class="valid-feedback" *ngIf="ProfitTitle.valid && ProfitTitle.touched">
-                  Looks good!
+                  !נראה טוב
                 </div>
                 <div class="invalid-feedback" *ngIf="ProfitTitle.invalid && ProfitTitle.touched">
-                    Please provide a valid title.
+                  .אנא ספק תיאור תקין
                 </div>
               </div>
             </div>
             <div class="form-row mb-2">
-              <div>
-                <label for="Amounts">Amounts</label>
+              <div class="text-right">
+                <label for="Amounts">סכום ההכנסה</label>
                 <input 
                     #amounts
                     type="number" 
                     min="1"
-                    class="form-control" 
-                    placeholder="Enter a price & press enter" 
+                    class="form-control text-right" 
+                    placeholder="הכנס מחיר & לחץ אנטר" 
                     (keyup.enter)="addAmount(amounts.value); amounts.value = null"
                     required>
                 <div class="row">
@@ -44,83 +44,84 @@
               </div>
             </div>
             <div class="form-row mb-2">
-              <div>
-                <label for="Total">Total</label>
+              <div class="text-right">
+                <label for="Total">סך הכל</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">₪</span>
                     </div>
                     <input
+                        disabled
                         type="text" 
-                        class="form-control" 
+                        class="form-control text-right" 
                         id="Total" 
-                        placeholder="Total" 
+                        placeholder="סך הכל" 
                         formControlName="Total"
                         required>      
                 </div>
               </div>
             </div>
             <div class="form-row mb-2">
-                <div>
-                  <label for="DealsVat">Deals Vat</label>
+                <div class="text-right">
+                  <label for="DealsVat">מע"מ עסקאות</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">%</span>
                     </div>
                     <input
-                        [disabled]="true"
+                        disabled
                         type="text" 
-                        class="form-control" 
+                        class="form-control text-right" 
                         id="DealsVat" 
-                        placeholder="DealsVat" 
+                        placeholder="מעמ עסקאות" 
                         formControlName="DealsVat"
                         required>
                   </div>
                 </div>
             </div>
             <div class="form-row mb-2">
-                <div>
-                  <label for="AfterVat">After Vat</label>
+                <div class="text-right">
+                  <label for="AfterVat">מחזור ללא מע"מ</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">₪</span>
                     </div>
                     <input
-                        [disabled]="true"
+                        disabled
                         type="text" 
-                        class="form-control" 
+                        class="form-control text-right" 
                         id="AfterVat" 
-                        placeholder="After Vat" 
+                        placeholder="מחזור ללא מעמ" 
                         formControlName="AfterVat"
                         required>
                   </div>
                 </div>
             </div>
             <div *ngIf="isEditMode">
-                <button 
-                    class="btn btn-outline-danger mt-2 float-left"
-                    (click)="onDelete()">
-                    Delete
-                </button>
-                <button 
-                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
-                    type="submit"
-                    (click)="onUpdate()">
-                    Update
-                </button>
+              <button 
+                  class="btn btn-outline-primary mt-2 ml-3 float-left" 
+                  type="submit"
+                  (click)="onUpdate()">
+                  עדכון
+              </button>
+              <button 
+                  class="btn btn-outline-danger mt-2  float-right"
+                  (click)="onDelete()">
+                  מחיקה
+              </button>
             </div>
             <div *ngIf="!isEditMode">
-                <button 
-                    class="btn btn-outline-danger mt-2 float-left"
-                    (click)="onDiscard()">
-                    Discard
-                </button>
-                <button 
-                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
+              <button 
+                    class="btn btn-outline-primary mt-2 ml-3 float-left" 
                     type="submit"
                     (click)="onCreate()">
-                    Create
+                    יצירה
                 </button>
+                <button 
+                    class="btn btn-outline-danger mt-2 float-right"
+                    (click)="onDiscard()">
+                    ביטול
+                </button>    
             </div>
         </div>
     </div>

@@ -3,60 +3,60 @@
         <div class="card shadow no-border ml-3">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-10">
-                        <h4>General Information</h4>
-                    </div>
                     <div class="col-2">
                         <i (click)="onEditClick()" class="far fa-edit mt-2 ml-2"></i>
+                    </div>
+                    <div class="col-10">
+                        <h4 class="text-right">פרטים אישיים</h4>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-6">
-                        <b>Name:</b>
+                        <p class="text-right">{{(client$ | async).Name}}</p>
                     </div>
                     <div class="col-6">
-                        <p>{{(client$ | async).Name}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <b>Id card:</b>
-                    </div>
-                    <div class="col-6">
-                        <p>{{(client$ | async).IdCard}}</p>
+                        <p class="text-right font-weight-bold grey-label">:שם מלא</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <b>Birth Year:</b>
+                        <p class="text-right">{{(client$ | async).IdCard}}</p>
                     </div>
                     <div class="col-6">
-                        <p>{{(client$ | async).BirthYear}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <b>Vat Username:</b>
-                    </div>
-                    <div class="col-6">
-                        <p>{{(client$ | async).Username}}</p>
+                        <p class="text-right font-weight-bold grey-label">:תעודת זהות</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <b>Vat Password:</b>
+                        <p class="text-right">{{(client$ | async).BirthYear}}</p>
                     </div>
                     <div class="col-6">
-                        <p>{{(client$ | async).Password}}</p>
+                        <p class="text-right font-weight-bold grey-label">:שנת לידה</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <b>Last update:</b>
+                        <p class="text-right">{{(client$ | async).Username}}</p>
                     </div>
                     <div class="col-6">
-                        <p>{{(client$ | async).LastUpdate | date}}</p>
+                        <p class="text-right font-weight-bold grey-label">:שם משתמש למע"מ</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p class="text-right">{{(client$ | async).Password}}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="text-right font-weight-bold grey-label">:סיסמא למע"מ</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p class="text-right">{{(client$ | async).LastUpdate | date}}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="text-right font-weight-bold grey-label">:עדכון אחרון</p>
                     </div>
                 </div>
             </div>
@@ -71,8 +71,8 @@
         <div class="card shadow no-border ml-3">
             <div class="card-body">
                 <div class="row mb-2">
-                    <div class="col-10">
-                        <h4>Profit graph</h4>
+                    <div class="col-12">
+                        <h4 class="text-right">גרף רווחים</h4>
                     </div>
                 </div>
                 <div style="display: block">
@@ -97,7 +97,7 @@
                                 <h1 class="ml-3 mt-2" style="color: rgb(22, 211, 154)">76,456.00₪</h1>
                             </div>
                             <div class="col-3">
-                                <h4>Total sales</h4>
+                                <h4>סך הכנסות</h4>
                                 <h6 class="ml-3">27/1/2019</h6>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                                 <h1 class="ml-3 mt-2" style="color: rgb(255, 117, 136)">43,520.00₪</h1>
                             </div>
                             <div class="col-3">
-                                <h4>Expenses</h4>
+                                <h4>סך הוצאות</h4>
                                 <h6 class="ml-3">27/1/2019</h6>
                             </div>
                         </div>

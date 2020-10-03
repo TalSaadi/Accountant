@@ -1,162 +1,162 @@
 <div class="card shadow no-border" style="margin-left: 30%;">
     <div class="card-body">
-        <h4>Client Form</h4>
-        <div [formGroup]="clientForm" class="ml-3">
+        <h4 class="text-right">טופס לקוח</h4>
+        <div [formGroup]="clientForm" class="mr-3">
             <div class="form-row mb-2 mt-3">
-              <div>
-                <label for="Name">Full name*</label>
+              <div class="text-right">
+                <label for="Name">*שם מלא</label>
                 <input 
                     type="text" 
-                    class="form-control"
+                    class="form-control text-right"
                     [ngClass]="isValidField('Name')"
                     id="Name" 
                     name="Name"
-                    placeholder="Full name" 
+                    placeholder="שם מלא" 
                     formControlName="Name"
                     required>
                 <div class="valid-feedback" *ngIf="Name.valid && Name.touched">
-                  Looks good!
+                  !נראה טוב
                 </div>
                 <div class="invalid-feedback" *ngIf="Name.invalid && Name.touched">
-                    Please provide a valid first name.
+                    .אנא הכנס שם מלא תקין
                 </div>
               </div>
             </div>
             <div class="form-row mb-2">
-                <div>
-                  <label for="IdCard">Id card*</label>
+                <div class="text-right">
+                  <label for="IdCard">*תעודת זהות</label>
                   <input 
                     type="text" 
                     min="1" 
-                    class="form-control"
+                    class="form-control text-right"
                     [ngClass]="isValidField('IdCard')"
                     id="IdCard" 
-                    placeholder="Id Card"
+                    placeholder="תעודת זהות"
                     formControlName="IdCard" 
                     required>
                     <div class="valid-feedback" *ngIf="IdCard.valid && IdCard.touched">
-                        Looks good!
+                        !נראה טוב
                     </div>
                     <div class="invalid-feedback" *ngIf="IdCard.invalid && IdCard.touched">
-                        Please provide a valid first id.
+                        .אנא הכנס תעודת זהות תקינה
                     </div>
                 </div>
             </div>
             <div class="form-row mb-2">
-              <div>
-                <label for="BirthYear">Birth Year*</label>
+              <div class="text-right">
+                <label for="BirthYear">*שנת לידה</label>
                 <input 
                     type="number" 
                     min="1"
                     max="99"
-                    class="form-control" 
+                    class="form-control text-right" 
                     [ngClass]="isValidField('BirthYear')"
                     id="BirthYear"
-                    placeholder="BirthYear" 
+                    placeholder="שנת לידה" 
                     formControlName="BirthYear"
                     required>
                 <div class="valid-feedback" *ngIf="BirthYear.valid && BirthYear.touched">
-                    Looks good!
+                    !נראה טוב
                 </div>
                 <div class="invalid-feedback" *ngIf="BirthYear.invalid && BirthYear.touched">
-                    Please provide a valid first birth year.
+                    .אנא הכנס שנת לידה תקינה
                 </div>
               </div>
             </div>
             <div class="form-row mb-2">
-              <div>
-                <label for="Username">Username*</label>
+              <div class="text-right">
+                <label for="Username">*שם משתמש למע"מ</label>
                 <input 
                     type="text" 
-                    class="form-control" 
+                    class="form-control text-right" 
                     [ngClass]="isValidField('Username')"
                     id="Username" 
-                    placeholder="Username" 
+                    placeholder="שם משתמש" 
                     formControlName="Username"
                     required>
                 <div class="valid-feedback" *ngIf="Username.valid && Username.touched">
-                    Looks good!
+                    !נראה טוב
                 </div>
                 <div class="invalid-feedback" *ngIf="Username.invalid && Username.touched">
-                    Please provide a valid first username.
+                    .אנא הכנס שם משתמש תקין
                 </div>
               </div>
             </div>
             <div class="form-row mb-2">
-                <div>
-                  <label for="Password">Password*</label>
+                <div class="text-right">
+                  <label for="Password">*סיסמא למע"מ</label>
                   <input 
                       type="text" 
-                      class="form-control" 
+                      class="form-control text-right" 
                       [ngClass]="isValidField('Password')"
                       id="Password" 
-                      placeholder="Password" 
+                      placeholder="סיסמא" 
                       formControlName="Password"
                       required>
                   <div class="valid-feedback" *ngIf="Password.valid && Password.touched">
-                      Looks good!
+                      !נראה טוב
                   </div>
                   <div class="invalid-feedback" *ngIf="Password.invalid && Password.touched">
-                      Please provide a valid first password.
+                      .אנא הכנס סיסמא תקינה
                   </div>
                 </div>
             </div>
             <div class="form-row mb-2">
-                <div>
-                  <label for="GreenUsername">Green Username</label>
+                <div class="text-right">
+                  <label for="GreenUsername">שם משתמש לחשבונית ירוקה</label>
                   <input 
                       type="text" 
-                      class="form-control" 
+                      class="form-control text-right" 
                       id="GreenUsername" 
-                      placeholder="GreenUsername" 
+                      placeholder="שם משתמש" 
                       formControlName="GreenUsername"
                       required>
                   <div class="valid-feedback" *ngIf="GreenUsername.valid && GreenUsername.touched">
-                      Looks good!
+                      !נראה טוב
                   </div>
                 </div>
             </div>
             <div class="form-row mb-2">
-                <div>
-                  <label for="GreenPassword">Green Password</label>
+                <div class="text-right">
+                  <label for="GreenPassword">סיסמא לחשבונית ירוקה</label>
                   <input 
                       type="text" 
-                      class="form-control" 
+                      class="form-control text-right" 
                       id="GreenPassword" 
-                      placeholder="GreenPassword" 
+                      placeholder="סיסמא" 
                       formControlName="GreenPassword"
                       required>
                   <div class="valid-feedback" *ngIf="GreenPassword.valid && GreenPassword.touched">
-                      Looks good!
+                      !נראה טוב
                   </div>
                 </div>
             </div>
             <div *ngIf="isEditMode">
                 <button 
-                    class="btn btn-outline-danger mt-2 float-left"
-                    (click)="onDelete()">
-                    Delete
-                </button>
-                <button 
-                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
+                    class="btn btn-outline-primary mt-2 ml-3 float-left" 
                     type="submit"
                     (click)="onUpdate()">
-                    Update
-                </button>
-            </div>
-            <div *ngIf="!isEditMode">
-                <button 
-                    class="btn btn-outline-danger mt-2 float-left"
-                    (click)="onDiscard()">
-                    Discard
+                    עדכון
                 </button>
                 <button 
-                    class="btn btn-outline-primary mt-2 mr-2 float-right" 
-                    type="submit"
-                    (click)="onCreate()">
-                    Create
+                    class="btn btn-outline-danger mt-2  float-right"
+                    (click)="onDelete()">
+                    מחיקה
                 </button>
-            </div>
+              </div>
+              <div *ngIf="!isEditMode">
+                <button 
+                      class="btn btn-outline-primary mt-2 ml-3 float-left" 
+                      type="submit"
+                      (click)="onCreate()">
+                      יצירה
+                  </button>
+                  <button 
+                      class="btn btn-outline-danger mt-2 float-right"
+                      (click)="onDiscard()">
+                      ביטול
+                  </button>    
+              </div>
         </div>
     </div>
 </div>
