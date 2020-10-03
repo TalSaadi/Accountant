@@ -7,11 +7,15 @@
                         <i class="far fa-calendar-alt month"></i>
                     </div>
                     <div class="col-5">
-                        <b class="float-right mb-2">Months</b>
+                        <b class="float-right mb-2">חודשים</b>
                         <h5 class="float-right">{{monthEnumToString((vat$ | async).Month)}}</h5>
                     </div>
                 </div>
-                <hr>
+                <hr style="margin-bottom: 0px;">
+                <div class="row" style="color: grey">
+                    <h6 style="margin-left: 60%">{{(vat$ | async).Year}} בשנת</h6>
+                    <i class="far fa-calendar ml-2 mt-3" style="font-size: 15px;"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -23,11 +27,15 @@
                         <i class="fas fa-shekel-sign expense"></i>                    
                     </div>
                     <div class="col-8">
-                        <b class="float-right mb-2">Vat to pay</b>
+                        <b class="float-right mb-2">מע"מ לתשלום</b>
                         <h1 class="float-right">{{(vat$ | async).TotalExpenses}} ₪</h1>
                     </div>
                 </div>
-                <hr>
+                <hr style="margin-bottom: 0px;">
+                <div class="row" style="color: grey">
+                    <h6 style="margin-left: 15%">מע"מ עסקאות - מע"מ תשומות</h6>
+                    <i class="fas fa-calculator ml-2 mt-3" style="font-size: 15px;"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -39,11 +47,15 @@
                         <i class="fas fa-calculator profit"></i>
                     </div>
                     <div class="col-6">
-                        <b class="float-right mb-2">Tax to pay</b>
+                        <b class="float-right mb-2">מקדמת מס</b>
                         <h1 class="float-right">{{(vat$ | async).TotalVat}} ₪</h1>
                     </div>
                 </div> 
-                <hr>
+                <hr style="margin-bottom: 0px;">
+                <div class="row" style="color: grey">
+                    <h6 style="margin-left: 20%">מחזור ללא מע"מ * אחוז ניכוי</h6>
+                    <i class="fas fa-calculator ml-2 mt-3" style="font-size: 15px;"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -55,11 +67,15 @@
                         <i class="fas fa-percent percent"></i>
                     </div>
                     <div class="col-6">
-                        <b class="float-right mb-2">Deduction</b>
+                        <b class="float-right mb-2">אחוז ניכוי</b>
                         <h1 class="float-right">{{(vat$ | async).AfterVat}} %</h1>
                     </div>
                 </div> 
-                <hr>
+                <hr style="margin-bottom: 0px;">
+                <div class="row" style="color: grey">
+                    <h6 style="margin-left: 15%">אחוז ניכוי מקדמות מס הכנסה</h6>
+                    <i class="fas fa-percent ml-2 mt-3" style="font-size: 15px;"></i>
+                </div>
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 export enum VatMonthStringEnum {
-    JanFeb = 'January - February',
-    MarApr = 'March - April',
-    MayJune = 'May - June',
-    JulAug = 'July - August',
-    SepOct = 'September - October',
-    NovDec = 'November - December'
+    JanFeb = 'ינואר - פברואר',
+    MarApr = 'מרץ - אפריל',
+    MayJune = 'מאי - יוני',
+    JulAug = 'יולי - אוגוסט',
+    SepOct = 'ספטמבר - אוקטובר',
+    NovDec = 'דצמבר - נובמבר'
 }

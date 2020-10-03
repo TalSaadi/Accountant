@@ -4,6 +4,7 @@ import { Expense } from '../objects/expense';
 export interface IClientVat {
     VatId: number;
     Month: VatMonthEnum,
+    Year: number;
     TotalExpenses: number,
     TotalVat: number,
     AfterVat: number,

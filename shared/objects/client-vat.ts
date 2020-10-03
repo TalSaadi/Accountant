@@ -6,6 +6,7 @@ import { Profit } from './profit';
 export class ClientVat implements IClientVat {
     VatId: number;
     Month: VatMonthEnum;
+    Year: number;
     TotalExpenses: number;
     TotalVat: number;
     AfterVat: number;
